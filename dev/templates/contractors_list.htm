@@ -1,0 +1,41 @@
+<div class="search-contractor_header">
+	<div class="container">
+		<div class="search-contractor_title">
+			<span>Contractor</span>
+		</div>
+		<div class="search-contractor_search">
+			<form class="navbar-form" role="search">
+				<div class="form-group">
+					<input data-ng-model="listData.searcheCriteriaViewData" type="text" class="form-control" placeholder="Search">
+				</div>
+				<button data-ng-click="search()" type="submit" class="btn btn-danger">Search</button>
+				<button data-ng-if="currentState == 'contractors'" data-ui-sref="room" type="submit" class="btn btn-danger">Show My</button>
+				<button data-ng-if="currentState == 'room'" data-ui-sref="contractors" type="submit" class="btn btn-primary">Show All</button>
+			</form>
+		</div>
+	</div>
+</div>
+<div  class="search-contractor_result">	
+	<div class="container">
+		<div class="panel panel-default" data-ng-repeat="contractor in listData.contractors | filter : listData.searcheCriteria track by $index">
+			<div class="panel-heading">
+				<a href="">
+					{{ contractor.director | emptyValueFilter}}
+				</a>
+			</div>
+			<div class="panel-body">
+				<div class="row"><div class="col-md-1 col-first">Adress:</div><div class="col-md-11">{{ contractor.address  | emptyValueFilter }}</div></div>
+				<div class="row"><div class="col-md-1 col-first">Direcror:</div><div class="col-md-11">{{ contractor.director  | emptyValueFilter }}</div></div>
+				<div class="row"><div class="col-md-1 col-first">Name:</div><div class="col-md-11">{{ contractor.name  | emptyValueFilter }}</div></div>
+				<div class="row"><div class="col-md-1 col-first">Phone:</div><div class="col-md-11">{{ contractor.phone | phoneNumberFilter | emptyValueFilter }}</div></div>
+			</div>
+			<div data-ng-if="!roomHasContractor(contractor)" class="panel-footer">
+				<button class="btn btn-danger" data-ng-click="addContractorToRoom(contractor)">ADD</button>
+			</div>
+			<div data-ng-if="roomHasContractor(contractor)" class="panel-footer">
+				<button class="btn btn-primary" data-ng-click="removeContractorFromRoom(contractor)">Delete</button>
+				<button class="btn btn-primary" data-ui-sref="info({id:contractor.id})">View info</button>
+			</div>
+		</div>
+	</div>
+</div>

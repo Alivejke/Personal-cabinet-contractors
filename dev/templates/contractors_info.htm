@@ -1,0 +1,24 @@
+<div  class="search-contractor_result">	
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<a href="">
+					{{ contractor.name | emptyValueFilter}}
+				</a>
+			</div>
+			<div class="panel-body">
+				<div class="row" data-ng-if="contractor.id"><div class="col-md-1 col-first">ID:</div><div class="col-md-11">{{ contractor.id }}</div></div>
+				<div class="row" data-ng-if="contractor.address"><div class="col-md-1 col-first">Adress:</div><div class="col-md-11">{{ contractor.address  }}</div></div>
+				<div class="row" data-ng-if="contractor.old_address"><div class="col-md-1 col-first">Old Address:</div><div class="col-md-11">{{ contractor.old_address }}</div></div>
+				<div class="row" data-ng-if="contractor.director"><div class="col-md-1 col-first">Direcror:</div><div class="col-md-11">{{ contractor.director  }}</div></div>
+				<div class="row" data-ng-if="contractor.old_name"><div class="col-md-1 col-first">Old Name:</div><div class="col-md-11">{{ contractor.old_name  }}</div></div>
+				<div class="row" data-ng-if="contractor.phone"><div class="col-md-1 col-first">Phone:</div><div class="col-md-11">{{ contractor.phone | phoneNumberFilter}}</div></div>
+				<div class="row" data-ng-if="contractor.okpo"><div class="col-md-1 col-first">OKPO:</div><div class="col-md-11">{{ contractor.okpo }}</div></div>
+				<div class="row" data-ng-if="contractor.site"><div class="col-md-1 col-first">Site:</div><div class="col-md-11">{{ contractor.site }}</div></div>
+			</div>
+			<div data-ng-if="!roomHasContractor(contractor)" class="panel-footer">
+				<button class="btn btn-primary" data-ng-click="gotoBack()">Back</button>
+			</div>
+		</div>
+	</div>
+</div>

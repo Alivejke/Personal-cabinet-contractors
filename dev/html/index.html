@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Contractor</title>
+	<link rel="stylesheet" href="css/main.css">
+	<script type="text/javascript" codepage="UTF-8" src="app/app.js"></script>
+	<base href="/">
+</head>
+<body data-ng-app="contractor" data-ng-class="{loaded : loaded}" data-ng-controller="applicationController">
+	<header>
+
+		<nav class="navbar navbar-default">
+		  	<div class="container-fluid">
+		    	<!-- <div class=""> -->
+		    		<div class="logo">
+			      		<a class="" href="#">Brand</a>
+			    	</div>
+			    	<div class="pull-right">
+			      		<ul class="nav navbar-nav">
+			        		<li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+			        		<li><a href="#"><span class="glyphicon glyphicon-bell"></span></a></li>
+			        		<li><a href=""><span class="glyphicon glyphicon-star"></span></a></li>
+			        		<li><a href=""><span class="glyphicon glyphicon-user"></span></a></li>
+			      		</ul>
+			      		<div class="menu">
+			      			<span class="glyphicon glyphicon-th-list"></span>
+			      		</div>
+			    	</div>
+		    	<!-- </div> -->
+		  	</div>
+		</nav>
+	</header>
+
+	<div data-ui-view="contractors-layout"></div>
+
+	<div class="down-menu" data-toggle-active>
+		<div class="navbar-default">
+			<ul class="nav navbar-nav">
+	    		<li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+	    		<li><a href="#"><span class="glyphicon glyphicon-bell"></span></a></li>
+	    		<li><a href=""><span class="glyphicon glyphicon-star"></span></a></li>
+	    		<li><a href=""><span class="glyphicon glyphicon-user"></span></a></li>
+	  		</ul>
+
+	  		<div class="body-menu menu">
+				<span class="glyphicon glyphicon-th-list"></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="loader-wrapper">
+	    <div class="loader"></div>
+	    <div class="loader-section"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,280 @@
+@import "bootstrap/less/bootstrap.less";
+@import "mixins.less";
+@import "variables.less";
+
+// Rewrite bootstrap styles
+.navbar {
+	margin-bottom: 0;
+	background-color: @base-white;
+	border: none;
+}
+
+.container-fluid {
+	padding: 0;
+}
+
+.form-control,
+.navbar {
+	.border-radius(0);
+}
+
+.navbar-nav {
+	margin: 0;
+	float: left;
+
+	& li > {
+		float: left;
+
+		a {
+			padding: 20px 20px 21px 20px;
+   			margin: 0 15px;
+		}
+	}
+
+	@media(max-width: 600px) {
+		display: none;
+	}
+}
+
+.logo {
+	line-height: 70px;
+	height: 70px;
+	float: left;
+	padding-left: 15px;
+
+	a {
+		color: @base-gray;
+		font-size: 18px;
+	}
+}
+
+.glyphicon {
+	font-size: 24px;
+}
+
+.navbar-form {
+	margin: 0;
+}
+
+.panel {
+	.box-shadow(0px 2px 2px 1px @base-panel-shadow);
+}
+
+.panel-default {
+	& > .panel-heading {
+		a {
+			font-size: 15px;
+	    	color: @base-black;
+	    	font-weight: bold;
+	    	text-transform: uppercase;
+		}
+	}
+}
+
+
+
+// Custom styles
+body,
+html {
+	height: 100%;
+}
+
+body {
+	background-color: @base-body;
+}
+
+header {
+	.box-shadow(0px 3px 15px 0px @base-shadow);
+    position: relative;
+    height: 70px;
+    z-index: 10002;
+}
+
+.row {
+	.col-first {
+		color: @base-gray;
+	}
+}
+
+.down-menu {
+	position: fixed;
+	right: 15px;
+	bottom: 15px;
+
+	&.active {
+		.navbar-nav {
+			display: block;
+		}		
+	}
+
+	.navbar-default {
+		background-color: transparent;
+		border-color: transparent;
+	}
+
+	.navbar-nav {
+		display: none;
+		float: none;
+
+		& > li {
+			float: none;
+		}
+	}
+}
+
+.menu {
+	float: left;
+	padding: 20px 30px 21px 30px;
+	color: @base-white;
+	background-color: @base-blue;
+	cursor: pointer;
+
+	@media(max-width: 600px) {
+		display: none;
+	}
+
+	&:hover {
+		background-color: lighten(@base-blue, 10%);
+	}
+
+	&.body-menu {
+		padding: 0;
+	    .border-radius(50%);
+	    width: 80px;
+	    height: 80px;
+	    text-align: center;
+	    display: inline-block;
+	    vertical-align: middle;
+	    line-height: 75px;
+	    margin: 0 7px;
+
+	    & > span {
+	    	vertical-align: middle;
+	    }
+	}
+}
+
+// .search-contractor
+.search-contractor {
+	&_header {
+		background-color: @base-body;
+    	position: relative;
+    	z-index: 10001;
+    	padding: 15px 0;
+    	.box-shadow(0 3px 15px 0 @base-shadow);
+    }
+	
+	// .search-contractor_title
+	&_title {
+		float: left;
+		padding-left: 10px;
+		text-transform: uppercase;
+		font-size: 25px;
+
+		@media(max-width: 768px) {
+			float: none;
+		}
+	}
+	
+	// .search-contractor_search
+	&_search {
+		padding-right: 30px;
+		float: right;
+
+		@media(max-width: 768px) {
+			float: none;
+		}
+
+		.navbar-form {
+			.form-control {
+				width: 300px;
+			}
+		}
+	}
+
+	// .search-contractor_result
+	&_result {
+		margin-top: 20px;
+		background-color: @base-body;
+	}
+}
+
+// loader
+.loader {
+	display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    .border-radius(50%);
+    border: 3px solid transparent;
+    border-top-color: @base-blue;
+    .animation(spin, 2s, linear, infinite);
+    z-index: 1001;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        .border-radius(50%);
+        border: 3px solid transparent;
+        border-top-color: @base-red;
+        .animation(spin, 3s, linear, infinite);
+    }
+	
+	// .loader-wrapper
+    &-wrapper {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    z-index: 1000;
+	}
+	
+	// .loader-section
+	&-section {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    background-color: @base-white;
+	    z-index: 1000;
+	}
+}
+
+
+// when loaded
+.loaded {
+	.loader {
+	    display: none;
+
+	    &-wrapper {
+		    display: none;
+		}
+	}
+}
+
+// animation for loader
+@-webkit-keyframes spin {
+    0%   { 
+        .transform(rotate(0deg));
+    }
+    100% {
+        .transform(rotate(360deg));
+    }
+}
+@keyframes spin {
+    0%   { 
+        .transform(rotate(0deg));
+    }
+    100% {
+        .transform(rotate(360deg));
+    }
+}
